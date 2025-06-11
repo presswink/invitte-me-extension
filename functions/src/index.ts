@@ -8,19 +8,68 @@
  * https://firebase.google.com/docs/extensions/publishers
  */
 
-import * as functions from "firebase-functions";
+import * as functions from "firebase-functions/v1";
+import * as admin from "firebase-admin";
+import { UserRecord } from "firebase-functions/v1/auth";
+import { ListUsersResult } from "firebase-admin/auth";
 
-exports.greetTheWorld = functions.https.onRequest(
-  (req: functions.Request, res: functions.Response) => {
-    // Here we reference a user-provided parameter
-    // (its value is provided by the user during installation)
-    const consumerProvidedGreeting = process.env.GREETING;
+admin.initializeApp(); // Initialize Firebase Admin SDK
 
-    // And here we reference an auto-populated parameter
-    // (its value is provided by Firebase after installation)
-    const instanceId = process.env.EXT_INSTANCE_ID;
+interface IUser {
+    name: string | undefined
+    email: string | undefined
+    user_id: string
+    anniversary_date: Date
+}
 
-    const greeting = `${consumerProvidedGreeting} World from ${instanceId}`;
+function insertUsers(users: IUser[]){
+     fetch(process.env.INVITTE_API ?? '', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "project-id": functions.params.defineString("projectId").value() ?? '',
+                "project-secret": functions.params.defineSecret("projectSecret").value() ?? ''
+            },
+            body: JSON.stringify({
+                users: users
+            })
+          }).then((el) => {
+            console.log("request sent", users.length)
+          }).catch((error) => {
+            console.log(error);
+          })
+}
 
-    res.send(greeting);
-  });
+exports.syncUsers = functions.https.onRequest(
+  async (req: functions.Request, res: functions.Response) => {
+    let nextPageToken;
+    const batchSize = 1000; // Firebase lists users in batches
+
+    do {
+      const listUsersResult: ListUsersResult = await admin
+        .auth()
+        .listUsers(batchSize, nextPageToken);
+      if (listUsersResult.users.length > 0) {
+        const users: IUser[] = listUsersResult.users.map((user: UserRecord) => ({
+            name: user.displayName,
+            email: user.email,
+            user_id: user.uid,
+            anniversary_date: new Date(user.metadata.creationTime),
+          } as IUser));
+          insertUsers(users)
+      }
+      nextPageToken = listUsersResult.pageToken;
+    } while (nextPageToken);
+  }
+);
+
+exports.syncCurrentUser = functions.auth.user().onCreate((user: UserRecord) => {
+   const mUser: IUser = {
+    name: user.displayName,
+    email: user.email,
+    user_id: user.uid,
+    anniversary_date: new Date(user.metadata.creationTime),
+  }
+  insertUsers([mUser])
+});
+

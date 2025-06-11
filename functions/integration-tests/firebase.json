@@ -6,9 +6,12 @@
     "ui": {
       "enabled": true
     },
-    "singleProjectMode": true
+    "singleProjectMode": true,
+    "auth": {
+      "port": 9099
+    }
   },
   "extensions": {
-    "greet-the-world": "../.."
+    "invitte-me": "../.."
   }
 }
