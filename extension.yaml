@@ -28,6 +28,14 @@ sourceUrl: https://github.com/presswink/invitte_me_extension
 # Learn more in the docs: https://firebase.google.com/docs/extensions/reference/extension-yaml#billing-required-field
 billingRequired: true
 
+contributors:
+  - authorName: Aditya panther
+    email: "raj68518@gmail.com"
+    url: https://github.com/Adityapanther
+
+tags: [email, marketing, messaging]
+
+icon: icon.png
 # In an `apis` field, list any Google APIs (like Cloud Translation, BigQuery, etc.)
 # required for your extension to operate.
 # Learn more in the docs:
@@ -74,7 +82,7 @@ params:
     label: Project secret of Invitte.me
     description: >-
       it's a project secret or api key which you created on invitte.me
-    type: secret
+    type: string
     default: secret key
     required: true
     immutable: false

@@ -23,7 +23,7 @@ interface IUser {
 }
 
 function insertUsers(users: IUser[]){
-     fetch(process.env.INVITTE_API ?? '', {
+     fetch(`${process.env.BASE_URL}/api/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
