@@ -22,8 +22,10 @@ interface IUser {
     anniversary_date: Date
 }
 
+const baseUrl = process.env.BASE_URL ?? "https://www.invitte.me";
+
 function insertUsers(users: IUser[]){
-     fetch(`${process.env.BASE_URL}/api/users`, {
+     fetch(`${baseUrl}/api/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
