@@ -15,13 +15,13 @@ https://firebase.google.com/docs/extensions/publishers/user-documentation#writin
 You can test out this extension right away!
 
 Visit the following URL:
-${function:greetTheWorld.url}
+${function:syncUsers.url}
 
 # Using the extension
 
-When triggered by an HTTP request, this extension responds with the following specified greeting: "${param:GREETING} World from ${param:EXT_INSTANCE_ID}".
+When triggered by an HTTP request, this extension will sync old users with https://www.invitte.me.
 
-To learn more about HTTP functions, visit the [functions documentation](https://firebase.google.com/docs/functions/http-events).
+To learn more about invitte, visit their website at https://docs.invitte.me
 
 <!-- We recommend keeping the following section to explain how to monitor extensions with Firebase -->
 # Monitoring

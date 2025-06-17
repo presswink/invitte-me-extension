@@ -7,10 +7,20 @@ Learn more about writing a PREINSTALL.md file in the docs:
 https://firebase.google.com/docs/extensions/publishers/user-documentation#writing-preinstall
 -->
 
-Use this extension to send a friendly greeting.
+Use this extension to send an app annivarsary email to users on their anniversary date.
 
-When triggered by an HTTP request, this extension responds with your specified friendly greeting.
+This extension will trigger on new user registration and send an email with the user's anniversary date.
 
+# Setup 
+1) Create an account on https://www.invitte.me .
+2) create a project with your project name, icon and description.
+3) create an API key in project settings.
+4) set your email configration
+5) get email templetes from https://www.invitte.me/templetes
+6) set email templete in project settings.
+7) copy project-id and secret from project settings and insert in extension.
+
+now you are ready to go.
 <!-- We recommend keeping the following section to explain how billing for Firebase Extensions works -->
 # Billing
 

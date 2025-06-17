@@ -75,14 +75,17 @@ params:
     description: >-
       it's a project id which you created on invitte.me
     type: string
-    default: project id
     required: true
     immutable: false
   - param: projectSecret
     label: Project secret of Invitte.me
     description: >-
       it's a project secret or api key which you created on invitte.me
-    type: string
-    default: secret key
+    type: secret
     required: true
     immutable: false
+# Defines the IAM roles (permissions) required by the extension's service account
+roles:
+  # Allows the extension to read user data from Firebase Authentication.
+  - role: firebaseauth.viewer
+    reason: Allows the extension to read and sync all users with invitte.me.

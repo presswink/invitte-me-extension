@@ -9,11 +9,11 @@
  */
 
 import * as functions from "firebase-functions/v1";
-import * as admin from "firebase-admin";
+import {initializeApp} from "firebase-admin/app";
 import { UserRecord } from "firebase-functions/v1/auth";
-import { ListUsersResult } from "firebase-admin/auth";
+import { getAuth, ListUsersResult } from "firebase-admin/auth";
 
-admin.initializeApp(); // Initialize Firebase Admin SDK
+initializeApp(); // Initialize Firebase Admin SDK
 
 interface IUser {
     name: string | undefined
@@ -48,9 +48,7 @@ exports.syncUsers = functions.https.onRequest(
     const batchSize = 1000; // Firebase lists users in batches
 
     do {
-      const listUsersResult: ListUsersResult = await admin
-        .auth()
-        .listUsers(batchSize, nextPageToken);
+      const listUsersResult: ListUsersResult = await getAuth().listUsers(batchSize, nextPageToken);
       if (listUsersResult.users.length > 0) {
         const users: IUser[] = listUsersResult.users.map((user: UserRecord) => ({
             name: user.displayName,
@@ -62,6 +60,7 @@ exports.syncUsers = functions.https.onRequest(
       }
       nextPageToken = listUsersResult.pageToken;
     } while (nextPageToken);
+    res.status(200).send({message: "users synced successfully !"})
   }
 );
 
