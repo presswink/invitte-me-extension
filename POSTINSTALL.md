@@ -12,7 +12,7 @@ https://firebase.google.com/docs/extensions/publishers/user-documentation#writin
 
 # See it in action
 
-You can test out this extension right away!
+To sync your all old users please click on the link below:
 
 Visit the following URL:
 ${function:syncUsers.url}

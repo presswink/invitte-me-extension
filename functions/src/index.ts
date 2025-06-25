@@ -24,13 +24,16 @@ interface IUser {
 
 const baseUrl = process.env.BASE_URL ?? "https://www.invitte.me";
 
+const projectId = functions.params.defineString("INVITTE_PROJECT_ID")
+const projectSecret = functions.params.defineSecret("INVITTE_PROJECT_SECRET")
+
 function insertUsers(users: IUser[]){
      fetch(`${baseUrl}/api/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "project-id": functions.params.defineString("projectId").value() ?? '',
-                "project-secret": functions.params.defineSecret("projectSecret").value() ?? ''
+                "project-id": projectId.value() ?? '',
+                "project-secret":  projectSecret.value() ?? ''
             },
             body: JSON.stringify({
                 users: users
@@ -42,7 +45,9 @@ function insertUsers(users: IUser[]){
           })
 }
 
-exports.syncUsers = functions.https.onRequest(
+exports.syncUsers = functions.runWith({
+  secrets: [projectSecret]
+}).https.onRequest(
   async (req: functions.Request, res: functions.Response) => {
     let nextPageToken;
     const batchSize = 1000; // Firebase lists users in batches
@@ -64,7 +69,7 @@ exports.syncUsers = functions.https.onRequest(
   }
 );
 
-exports.syncCurrentUser = functions.auth.user().onCreate((user: UserRecord) => {
+exports.syncCurrentUser = functions.runWith({secrets: [projectSecret]}).auth.user().onCreate((user: UserRecord) => {
    const mUser: IUser = {
     name: user.displayName,
     email: user.email,

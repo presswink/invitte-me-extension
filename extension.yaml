@@ -4,7 +4,7 @@
 # Identifier for your extension
 # TODO: Replace this with an descriptive name for your extension.
 name: invitte-me  
-version: 0.0.1 # Follow semver versioning
+version: 0.0.2 # Follow semver versioning
 specVersion: v1beta  # Version of the Firebase Extensions specification
 
 # Friendly display name for your extension (~3-5 words)
@@ -22,7 +22,7 @@ author:
 
 # Public URL for the source code of your extension.
 # TODO:  Replace this with your GitHub repo.
-sourceUrl: https://github.com/presswink/invitte_me_extension
+sourceUrl: https://github.com/presswink/invitte-me-extension
 
 # Specify whether a paid-tier billing plan is required to use your extension.
 # Learn more in the docs: https://firebase.google.com/docs/extensions/reference/extension-yaml#billing-required-field
@@ -56,7 +56,7 @@ resources:
     properties:
       # httpsTrigger is used for an HTTP triggered function.
       httpsTrigger: {}
-      runtime: "nodejs16"
+      runtime: "nodejs20"
 
   - name: syncCurrentUser
     type: firebaseextensions.v1beta.function
@@ -70,14 +70,14 @@ resources:
 # Learn more in the docs:
 # https://firebase.google.com/docs/extensions/reference/extension-yaml#params-field
 params:
-  - param: projectId
+  - param: INVITTE_PROJECT_ID
     label: Project id of Invitte.me
     description: >-
       it's a project id which you created on invitte.me
     type: string
     required: true
     immutable: false
-  - param: projectSecret
+  - param: INVITTE_PROJECT_SECRET
     label: Project secret of Invitte.me
     description: >-
       it's a project secret or api key which you created on invitte.me
