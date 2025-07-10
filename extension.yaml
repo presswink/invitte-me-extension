@@ -4,7 +4,7 @@
 # Identifier for your extension
 # TODO: Replace this with an descriptive name for your extension.
 name: invitte-me  
-version: 0.0.2 # Follow semver versioning
+version: 0.0.3 # Follow semver versioning
 specVersion: v1beta  # Version of the Firebase Extensions specification
 
 # Friendly display name for your extension (~3-5 words)
@@ -89,3 +89,8 @@ roles:
   # Allows the extension to read user data from Firebase Authentication.
   - role: firebaseauth.viewer
     reason: Allows the extension to read and sync all users with invitte.me.
+
+externalServices:
+  # List all external URLs/APIs your extension communicates with
+  - name: invitte.me REST API's
+    pricingUri: https://invitte.me/pricing
