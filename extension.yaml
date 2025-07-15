@@ -3,8 +3,8 @@
 
 # Identifier for your extension
 # TODO: Replace this with an descriptive name for your extension.
-name: invitte-me  
-version: 0.0.3 # Follow semver versioning
+name: Anniversary auth sync from invitte.me
+version: 0.0.4 # Follow semver versioning
 specVersion: v1beta  # Version of the Firebase Extensions specification
 
 # Friendly display name for your extension (~3-5 words)
@@ -12,7 +12,7 @@ displayName: Send Anniversary Reminder Email to Users
 
 # Brief description of the task your extension performs (~1 sentence)
 description: >-
-  send Anniversarry email to users. This extension will send a reminder email to users on their app Anniversarry.
+  send Anniversary email to users. This extension will send a reminder email to users on their app Anniversary.
 
 license: Apache-2.0  # https://spdx.org/licenses/
 

@@ -9,6 +9,12 @@ Learn more in the docs: https://firebase.google.com/docs/extensions/publishers/u
 Learn more about writing a POSTINSTALL.md file in the docs:
 https://firebase.google.com/docs/extensions/publishers/user-documentation#writing-postinstall
 -->
+# Anniversary auth sync  from invitte.me
+Welcome ! This is the extension, which will sync your old and new users auth with https://invitte.me to send anniversary Reminders to your users.
+
+Well, if you are seeing the page it means that you are interested in our product and ready to use our services
+
+Thank for Installing it.
 
 # See it in action
 
@@ -21,9 +27,17 @@ ${function:syncUsers.url}
 
 When triggered by an HTTP request, this extension will sync old users with https://www.invitte.me.
 
-To learn more about invitte, visit their website at https://docs.invitte.me
+# Documentation
+
+To learn more about invitte, visit their website at https://docs.invitte.me 
 
 <!-- We recommend keeping the following section to explain how to monitor extensions with Firebase -->
 # Monitoring
 
 As a best practice, you can [monitor the activity](https://firebase.google.com/docs/extensions/manage-installed-extensions#monitor) of your installed extension, including checks on its health, usage, and logs.
+
+
+# Contact us
+if you have any issue with it or you have any questions related to this, you can reach out to us.
+
+emails: support@invitte.me, support@presswink.com
