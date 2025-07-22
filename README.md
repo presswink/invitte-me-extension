@@ -1,19 +1,17 @@
-# inviite.me Extension
-This extension sync user from firebase to https://invitte.me to send personalized Anniversary Reminders.
+# invitte.me Extension
+This extension syncs users from Firebase to https://invitte.me to send personalized Anniversary Reminders.
 
-*For More Info Please Follow Our Docs*
+*For more info, please follow our docs.*
 
-Website :- https://invitte.me
+Website: https://invitte.me
 
 ## Documentation
 
-Please follow the link for our docs
+Please follow the link for our docs:  
 https://docs.invitte.me/
-
-
 
 # Contributors
 
-[Aditya panther](https://github.com/Adityapanther) & [Presswink Technology](https://github.com/presswink)
+[Aditya Panther](https://github.com/Adityapanther) & [Presswink Technology](https://github.com/presswink)
 
 

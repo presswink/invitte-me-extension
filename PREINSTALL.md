@@ -7,22 +7,22 @@ Learn more about writing a PREINSTALL.md file in the docs:
 https://firebase.google.com/docs/extensions/publishers/user-documentation#writing-preinstall
 -->
 
-# Anniversary auth sync  from invitte.me
+# Anniversary auth sync from invitte.me
 
-Use this extension to send an app annivarsary email to users on their anniversary dates.
+Use this extension to send an app anniversary email to users on their anniversary dates.
 
-This extension will trigger on new user registration and will send an email to the user's on thier anniversary date.
+This extension will trigger on new user registration and will send an email to the users on their anniversary date.
 
 # Setup 
-1) Create an account on https://www.invitte.me .
-2) create a project with your project name, icon and description.
-3) create an API key in project settings.
-4) set your email configration
-5) get email templetes from https://www.invitte.me/templetes
-6) set email templete in project settings.
-7) copy project-id and secret from project settings and insert in this extension.
+1) Create an account on https://www.invitte.me.
+2) Create a project with your project name, icon, and description.
+3) Create an API key in project settings.
+4) Set your email configuration.
+5) Get email templates from https://www.invitte.me/templates.
+6) Set email template in project settings.
+7) Copy project ID and secret from project settings and insert in this extension.
 
-now you are ready to go.
+Now you are ready to go.
 <!-- We recommend keeping the following section to explain how billing for Firebase Extensions works -->
 # Billing
 

@@ -12,3 +12,7 @@
 - We have updated PREINSTALL and POSTINSTALL docs
 - Readme.md file added
 
+## Version 0.0.5
+- url added in externalServices
+- typo issue fixed
+- runtime field added to other functions
